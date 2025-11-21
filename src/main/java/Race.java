@@ -1,21 +1,22 @@
 import java.util.Scanner;
 public class Race {
+    Vehicle vehicle;
     int max_dist = 0;
     String winner = "";
-    Vehicle[] allCars;
 
     String leader() {
-        for (Vehicle i : allCars) {
-            if (i.distance() > max_dist) {
-                max_dist = i.distance();
-                winner = i.make;
-            }
+        if (vehicle.distance() > max_dist) {
+            max_dist = vehicle.distance();
+            winner = vehicle.make;
         }
-
         return winner;
     }
-    Race(Vehicle[] allCars ) {
-        this.allCars = allCars;
+    Race(Vehicle vehicle ) {
+        this.vehicle = vehicle;
+    }
+
+    Race() {
+        vehicle = new Vehicle();
     }
 }
 
